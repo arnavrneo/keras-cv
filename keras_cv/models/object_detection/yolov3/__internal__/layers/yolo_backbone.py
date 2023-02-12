@@ -8,7 +8,7 @@ from keras_cv.models.__internal__.darknet_utils import (
 # darknet53 body
 
 
-class Darknet53_body(keras.layers.Layer):
+class Darknet53(keras.layers.Layer):
     ''' 52 conv2d layers '''
     def __init__(self):
         super().__init__()
@@ -74,8 +74,8 @@ class Yolov3_block(keras.layers.Layer):
         return route, x
 
 
-@staticmethod
 class Upsample(keras.layers.Layer):
+    @classmethod
     def call(inputs, out_shape, data_format):
 
         if data_format == 'channels_first':
@@ -92,8 +92,6 @@ class Upsample(keras.layers.Layer):
             inputs = tf.transpose(inputs, [0, 3, 1, 2])
 
         return inputs
-
-
 
 # class Yolov3Model(keras.layers.Layer):
 #     def __init__(

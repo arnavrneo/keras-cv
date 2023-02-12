@@ -4,6 +4,7 @@ from keras_cv.models.__internal__.darknet_utils import (
     DarknetConvBlock
 )
 
+
 class Yolohead(keras.layers.Layer):
 
     def __init__(
